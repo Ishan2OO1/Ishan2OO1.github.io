@@ -35,3 +35,64 @@
   body{background:#fff;color:#000}
   .section{padding-top:24px}
 }
+
+/* ===== Portrait ===== */
+.portrait{margin:34px 0 0;position:relative;width:max-content}
+.portrait img{display:block;width:300px;height:300px;max-width:100%;object-fit:cover;border-radius:18px;border:1px solid #30394d;background:#141925;box-shadow:0 26px 70px #0009, inset 0 1px #ffffff12}
+.portrait figcaption{display:flex;align-items:center;gap:9px;margin-top:14px;font:10px var(--mono);letter-spacing:.12em;color:#8b95a8}
+.portrait-dot{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 14px #9de6d0;flex:none}
+.portrait::after{content:"";position:absolute;inset:-26px -26px 40px -26px;border-radius:26px;background:radial-gradient(circle at 30% 20%,#849cff26,transparent 65%);pointer-events:none;z-index:-1}
+.portrait-lg img{width:260px;height:260px}
+.detail-link{display:inline-flex;align-items:center;gap:8px;margin-top:9px;font-size:11px;font-weight:700;color:#d8e1ff}
+.detail-link span{color:var(--blue)}
+.detail-link:hover{color:#fff}
+
+/* ===== Education page ===== */
+.page-head-section{padding-top:70px}
+.page-head{display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center}
+.page-title{font-size:clamp(40px,5.2vw,64px);line-height:1.12;letter-spacing:-.065em;margin:22px 0 20px;font-weight:700}
+.page-lede{max-width:560px;color:var(--muted);font-size:15px;line-height:1.9;margin:0}
+.page-back{margin-top:30px}
+.page-head .portrait{margin-top:0}
+
+.edu-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:64px}
+.edu-stat{display:flex;flex-direction:column;gap:7px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(180deg,#11151e,#0d1016);padding:20px}
+.edu-stat b{font-size:22px;letter-spacing:-.04em;color:#aab7ff}
+.edu-stat span{font-size:11px;line-height:1.7;color:var(--muted)}
+
+.edu-card{display:grid;grid-template-columns:170px 1fr;gap:28px;border:1px solid var(--line);border-radius:15px;background:linear-gradient(180deg,#11151e,#0d1016);padding:30px 32px;margin-bottom:16px;transition:border-color .25s,transform .25s}
+.edu-card:hover{border-color:#48536a;transform:translateY(-3px)}
+.edu-card-side{display:flex;flex-direction:column;align-items:start;gap:12px}
+.edu-years{font:11px var(--mono);letter-spacing:.1em;color:#9dafff}
+.edu-badge{font:8px var(--mono);letter-spacing:.12em;color:var(--mint);border:1px solid #285247;border-radius:4px;padding:6px 8px}
+.edu-badge-done{color:#aab4c6;border-color:#2a3240}
+.edu-card-main h3{font-size:23px;letter-spacing:-.045em;margin:0 0 9px}
+.edu-degree{font-size:13px;font-weight:700;color:#dce4ff;margin:0 0 7px}
+.edu-place{font:10px var(--mono);letter-spacing:.06em;color:#8b95a8;margin:0 0 14px}
+.edu-card-main p:not(.edu-degree):not(.edu-place){font-size:12px;line-height:1.85;color:var(--muted);margin:0;max-width:720px}
+
+.cert-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.cert-card{display:flex;flex-direction:column;gap:9px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(180deg,#11151e,#0d1016);padding:22px;transition:border-color .25s,transform .25s}
+.cert-card:hover{border-color:#48536a;transform:translateY(-3px)}
+.cert-mark{color:var(--mint);font-size:17px}
+.cert-card b{font-size:13px;letter-spacing:-.02em;line-height:1.5}
+.cert-card small{font-size:11px;color:#8993a5}
+.tags-lg span{font-size:11px;padding:9px 12px}
+
+@media(max-width:800px){
+  .page-head{grid-template-columns:1fr;gap:34px}
+  .page-head .portrait{order:-1}
+  .edu-stats{grid-template-columns:1fr 1fr;margin-top:46px}
+  .cert-grid{grid-template-columns:1fr 1fr}
+  .edu-card{grid-template-columns:1fr;gap:16px;padding:26px}
+  .edu-card-side{flex-direction:row;align-items:center;gap:14px}
+  .portrait img{width:240px;height:240px}
+  .portrait-lg img{width:220px;height:220px}
+}
+@media(max-width:560px){
+  .edu-stats,.cert-grid{grid-template-columns:1fr}
+  .page-head-section{padding-top:50px}
+  .portrait img,.portrait-lg img{width:180px;height:180px}
+  .edu-card{padding:22px}
+  .edu-card-main h3{font-size:20px}
+}

@@ -7,9 +7,11 @@ Personal portfolio site. Static, dependency-free, deployed to GitHub Pages.
 ## Structure
 
 ```
-index.html      markup + content (all copy lives here)
-styles.css      all styling, including responsive + print + reduced-motion
+index.html      home page: hero, projects, research, about, contact
+education.html  education, academic roles, certifications
+styles.css      all styling, shared by both pages
 script.js       nav toggle, scroll reveal, project preview panels
+profile.jpg     portrait, 800x800 (profile-sm.jpg is the 400x400 srcset variant)
 preview.png     1200x630 social sharing card (og:image)
 sitemap.xml     single-page sitemap
 robots.txt      crawler directives
@@ -40,6 +42,10 @@ repository root to GitHub Pages. No manual steps after the first setup.
   `.project-demo` panel whose text comes from `demoOutputs` in `script.js`.
 - **Research** — the `<article class="research-card">` blocks.
 - **Contact / About** — the `#about` and `#contact` sections.
+- **Education page** — `education.html`: degrees in `.edu-card` blocks, roles in
+  `.research-card` blocks, certifications in `.cert-card` blocks.
+- **Portrait** — replace `profile.jpg` (800x800) and `profile-sm.jpg` (400x400).
+  Both are square; the CSS crops to fit, so any square image works.
 - **Colors** — the CSS custom properties in `:root` at the top of `styles.css`.
 
 ## Custom domain
