@@ -1,0 +1,8 @@
+.DS_Store
+Thumbs.db
+node_modules/
+*.log
+
+# Superseded single-file draft kept locally as a personal archive.
+# The live site is index.html + styles.css + script.js at the repo root.
+source/
