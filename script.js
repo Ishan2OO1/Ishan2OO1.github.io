@@ -50,10 +50,10 @@
 
   /* Project concept previews */
   var demoOutputs = {
-    MedQGraph: 'Sample pathway: question parsed \u2192 clinical entities retrieved \u2192 graph relationships traversed \u2192 grounded response assembled. Illustrative only; no patient data.',
-    SkiTrak: 'Simulation complete: request accepted \u2192 routed to service layer \u2192 distributed core reached. This is a conceptual flow, not a load test.',
-    AIport: 'Sample insight: a useful analysis would segment operational delays by time window, category, and contributing factor. Mock output only.',
-    Vision2D: 'Sample output: preprocessing complete \u2192 ONNX inference stage \u2192 illustrative class label returned. The model is not running in this preview.'
+    MedQGraph: 'Sample pathway: question parsed \u2192 clinical entities retrieved \u2192 temporal graph traversed \u2192 grounded answer assembled. The real system reached 94.3% query success and ran 65% faster than the SQL baseline. Illustrative only; no patient data.',
+    SkiTrak: 'Simulation complete: request accepted \u2192 thread pool dispatch \u2192 RabbitMQ queue \u2192 leaderboard consumer. The real platform sustained 10.5K requests/sec at 50 ms p99 with zero failures. Conceptual flow, not a live load test.',
+    AIport: 'Sample insight: question parsed \u2192 SQL generated \u2192 validation layer checked \u2192 chart returned. The real tool reached 91% accuracy across 11 query types over a 600+ column warehouse. Mock output only.',
+    Vision2D: 'Sample output: frame preprocessed \u2192 ONNX inference \u2192 result returned. The real pipeline hit 30+ FPS after a 3\u00d7 speedup from separable convolution decomposition. The model is not running in this preview.'
   };
 
   function closeDemo(project) {

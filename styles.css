@@ -105,3 +105,60 @@
   .hero-meta .meta-divider:last-of-type{display:none}
   .hero-meta .meta-grad{flex-basis:100%}
 }
+
+/* ===== Metrics strips ===== */
+.metrics{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:18px 0 0;padding:0}
+.metrics li{display:flex;flex-direction:column;gap:3px;border:1px solid #2a3240;border-radius:8px;background:#0f141d;padding:10px 12px;min-width:92px}
+.metrics b{font-size:15px;letter-spacing:-.03em;color:#aab7ff;line-height:1.2}
+.metrics span{font:8px var(--mono);letter-spacing:.09em;color:#8b95a8;line-height:1.5}
+.research-main .metrics{margin-top:16px}
+
+/* ===== Award pill & misc ===== */
+.award-pill{font:8px var(--mono);letter-spacing:.11em;color:#ffd9a0;border:1px solid #5a4526;background:#241b0f;border-radius:5px;padding:6px 8px;white-space:nowrap}
+.h3-sub{font-size:15px;font-weight:500;letter-spacing:-.02em;color:#8b95a8}
+.text-link-muted{color:#79839a;font-weight:500}
+.text-link-muted::before{content:"\25cf";color:#4c5568;margin-right:8px}
+
+/* ===== New project visuals ===== */
+.cost-visual{background:radial-gradient(ellipse at 50% 85%,#2a2440,#11141c 68%)}
+.cost-chart{position:absolute;left:14%;right:14%;top:58px;bottom:22px;display:flex;flex-direction:column;justify-content:flex-end;gap:12px}
+.cost-bars{display:flex;align-items:flex-end;gap:9px;height:110px}
+.cost-bars i{flex:1;background:linear-gradient(#b6a4ff,#5b4a8f);border-radius:3px 3px 0 0;opacity:.85}
+.cost-line{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #3a3352;padding-top:10px;font:9px var(--mono);letter-spacing:.1em;color:#9c92ba}
+.cost-save{color:var(--mint)}
+.nlp-visual{background:radial-gradient(ellipse at center,#1c2b3a,#10141b 70%)}
+.nlp-stack{position:absolute;left:14%;right:14%;top:70px;display:flex;flex-direction:column;gap:14px}
+.nlp-row{display:flex;align-items:center;gap:10px;justify-content:center}
+.nlp-token{font:10px var(--mono);color:#cfe0ff;border:1px solid #3d5068;border-radius:6px;padding:9px 12px;background:#17222f}
+.nlp-arrow{color:#7f93b8}
+.nlp-token-accent{border-color:#68bba8;background:#18332f;color:#b8f0df}
+.nlp-bar{height:9px;border-radius:5px;background:#1b2531;overflow:hidden;border:1px solid #2b3747}
+.nlp-bar i{display:block;height:100%;background:linear-gradient(90deg,#9de6d0,#6f9fe0)}
+.nlp-caption{font:8px var(--mono);letter-spacing:.11em;color:#8ba0bb;text-align:center}
+
+@media(max-width:560px){
+  .metrics li{min-width:76px;padding:9px 10px}
+  .metrics b{font-size:13px}
+  .project-top{flex-wrap:wrap;gap:8px}
+  .award-pill{white-space:normal}
+}
+
+/* ===== Education page additions ===== */
+.gpa-pill{display:inline-block;font:9px var(--mono);letter-spacing:.09em;color:#9de6d0;border:1px solid #285247;background:#10201e;border-radius:4px;padding:4px 7px;margin-left:8px;vertical-align:middle}
+.coursework{font-size:11px!important;line-height:1.85;color:#8b95a8!important;margin:12px 0 0!important;max-width:760px}
+.coursework b{display:block;font:9px var(--mono);letter-spacing:.12em;color:#9dafff;margin-bottom:5px;font-weight:500}
+.cert-card-award{border-color:#5a4526;background:linear-gradient(180deg,#1c1710,#12100b)}
+.cert-card-award .cert-mark{color:#ffd9a0}
+.edu-stats{grid-template-columns:repeat(5,1fr)}
+@media(max-width:1000px){.edu-stats{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:800px){.edu-stats{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.edu-stats{grid-template-columns:1fr}.gpa-pill{margin-left:0;margin-top:6px}}
+
+/* The .ambient blurs are position:absolute with no positioned ancestor, so they resolve
+   against the initial containing block and extend the page horizontally. body's own
+   overflow-x:hidden cannot clip them: it propagates to the viewport, which leaves body
+   itself rendering as visible. Clipping html instead would break the sticky nav, so the
+   blurs live in their own absolutely-positioned layer that clips them. */
+body{position:relative}
+.ambient-layer{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1}
+.ambient-layer .ambient{position:absolute}
