@@ -96,3 +96,12 @@
   .edu-card{padding:22px}
   .edu-card-main h3{font-size:20px}
 }
+
+/* ===== Graduation date ===== */
+.hero-meta{flex-wrap:wrap;row-gap:8px}
+.hero-meta .meta-grad{color:var(--mint)}
+.about-details .detail-grad{color:#9de6d0;font:9px var(--mono);letter-spacing:.08em;margin-top:2px}
+@media(max-width:560px){
+  .hero-meta .meta-divider:last-of-type{display:none}
+  .hero-meta .meta-grad{flex-basis:100%}
+}
