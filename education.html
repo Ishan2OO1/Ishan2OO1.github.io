@@ -18,11 +18,12 @@
   <meta property="og:url" content="https://ishan2oo1.github.io/education.html" />
   <meta property="og:image" content="https://ishan2oo1.github.io/preview.png" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://ishan2oo1.github.io/preview.png" />
 
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23090b10'/%3E%3Crect x='1.5' y='1.5' width='61' height='61' rx='13' fill='none' stroke='%23424b61' stroke-width='3'/%3E%3Ctext x='32' y='43' font-family='Helvetica,Arial,sans-serif' font-size='27' font-weight='bold' fill='%238da9ff' text-anchor='middle'%3EIC%3C/text%3E%3C/svg%3E" />
   <link rel="stylesheet" href="styles.css" />
   <noscript>
-    <style>.reveal{opacity:1!important;transform:none!important}.ticker-track{animation:none}</style>
+    <style>.reveal{opacity:1!important;transform:none!important}</style>
   </noscript>
 </head>
 <body>
@@ -32,12 +33,12 @@
   <header class="nav-wrap">
     <nav class="nav container">
       <a class="brand" href="index.html"><span class="brand-mark">IC</span><span>ISHAN CHAUDHARY</span></a>
-      <div class="nav-links">
-        <a href="index.html#work">Work</a><a href="index.html#research">Research</a>
-        <a href="education.html" aria-current="page">Education</a><a href="index.html#about">About</a>
-        <a href="index.html#contact" class="nav-cta">Let's connect <span>↗</span></a>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html#experience">Experience</a><a href="index.html#work">Projects</a><a href="index.html#research">Research</a><a href="index.html#skills">Skills</a>
+        <a href="education.html" aria-current="page">Education</a>
+        <a href="resume.html" class="nav-cta">Résumé <span>↗</span></a>
       </div>
-      <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-controls="nav-links">☰</button>
     </nav>
   </header>
 
@@ -50,7 +51,7 @@
           <div class="eyebrow"><span class="status-dot"></span> EDUCATION &amp; ACADEMIC BACKGROUND</div>
           <h1 class="page-title">Learning that <span class="gradient-text">compounds.</span></h1>
           <p class="page-lede">A graduate degree in data science — graduating December 2026 — built on a computer-science engineering foundation, alongside research at InsightX Lab and teaching in deep learning.</p>
-          <a class="button button-ghost page-back" href="index.html">← Back to portfolio</a>
+          <a class="button button-ghost page-back" href="index.html">← Back to portfolio</a> <a class="button button-ghost page-back" href="resume.html">Résumé <span>↗</span></a>
         </div>
         <figure class="portrait portrait-lg">
           <img src="profile.jpg" srcset="profile-sm.jpg 400w, profile.jpg 800w"
@@ -61,7 +62,8 @@
       </div>
 
       <div class="edu-stats reveal">
-        <div class="edu-stat"><b>4.0 / 4.0</b><span>Graduate GPA</span></div><div class="edu-stat"><b>MS</b><span>Data Science &amp; Analytics Engineering<br>Graduating December 2026</span></div>
+        <div class="edu-stat"><b>4.0 / 4.0</b><span>Graduate GPA</span></div>
+        <div class="edu-stat"><b>MS</b><span>Data Science &amp; Analytics Engineering<br>Graduating December 2026</span></div>
         <div class="edu-stat"><b>BTech</b><span>Computer Science</span></div>
         <div class="edu-stat"><b>AAAI 2026</b><span>Co-authored workshop research</span></div>
         <div class="edu-stat"><b>20+</b><span>Graduate students mentored as TA</span></div>
@@ -105,78 +107,12 @@
         </div>
       </article>
 
-      <article class="edu-card reveal">
-        <div class="edu-card-side">
-          <span class="edu-years">School</span>
-        </div>
-        <div class="edu-card-main">
-          <h3>St. Fidelis School</h3>
-          <p class="edu-degree">Secondary education</p>
-        </div>
-      </article>
-    </section>
-
-    <!-- ===== Academic & research roles ===== -->
-    <section class="section research-section" id="roles"><div class="container">
-      <div class="section-head reveal">
-        <div><div class="eyebrow">ACADEMIC &amp; RESEARCH ROLES</div><h2>Where the learning <span class="gradient-text">gets applied.</span></h2></div>
-        <p>Teaching, research and engineering roles held alongside graduate study.</p>
+      <div class="projects-note reveal">
+        <span class="note-icon">↗</span>
+        <p>Teaching, research and engineering roles are listed under Experience on the main page.</p>
+        <a href="index.html#experience">View experience</a>
       </div>
-
-      <article class="research-card reveal">
-        <div class="research-index">01</div>
-        <div class="research-main">
-          <div class="research-kicker">NORTHEASTERN UNIVERSITY · SEP 2026 — PRESENT</div>
-          <h3>Teaching Assistant — Deep Learning for AI (IE 7945)</h3>
-          <p>Mentoring 20+ graduate students on neural networks, CNNs, RNNs and Transformers through weekly office hours and one-to-one technical reviews, explaining complex topics to students with mixed backgrounds.</p>
-          <div class="tags"><span>Deep Learning</span><span>Transformers</span><span>Mentoring</span></div>
-        </div>
-        <div class="research-side"><span class="research-status">CURRENT</span><span class="research-arrow">↗</span></div>
-      </article>
-      <article class="research-card reveal">
-        <div class="research-index">02</div>
-        <div class="research-main">
-          <div class="research-kicker">INSIGHTX LAB · NORTHEASTERN · JAN 2025 — SEP 2026</div>
-          <h3>Graduate Research Assistant</h3>
-          <p>Architected MedQGraph, modelling FHIR-compliant MIMIC-IV records as a Neo4j temporal knowledge graph with a LangChain + GPT-4o RAG pipeline, and built GraphJailbreak, an annotated benchmark for adversarial attacks that evade text-only safety classifiers.</p>
-          <ul class="metrics"><li><b>65%</b><span>faster than SQL</span></li><li><b>40%</b><span>retrieval relevance</span></li><li><b>94.3%</b><span>query success</span></li><li><b>50K+</b><span>records remodelled</span></li></ul>
-          <div class="tags"><span>Neo4j</span><span>LangChain</span><span>GPT-4o</span><span>Healthcare AI</span><span>AI Safety</span></div>
-        </div>
-        <div class="research-side"><span class="research-status">COMPLETED</span><span class="research-arrow">↗</span></div>
-      </article>
-      <article class="research-card reveal">
-        <div class="research-index">03</div>
-        <div class="research-main">
-          <div class="research-kicker">PORT OF SEATTLE · NORTHEASTERN PARTNERSHIP · JAN — MAY 2026</div>
-          <h3>Software Engineer — Capstone Engagement</h3>
-          <p>Built a natural-language-to-SQL reporting tool over a 600+ column data warehouse for Seattle-Tacoma International Airport, fine-tuning CodeLlama-7B and adding a Claude Haiku 4.5 validation layer. Met Port operations staff each sprint to turn their questions into requirements.</p>
-          <ul class="metrics"><li><b>2 wks → 2 min</b><span>reporting time</span></li><li><b>91%</b><span>SQL accuracy</span></li><li><b>11</b><span>query types evaluated</span></li></ul>
-          <div class="tags"><span>CodeLlama-7B</span><span>LLM Evaluation</span><span>Chart.js</span><span>Agile</span></div>
-        </div>
-        <div class="research-side"><span class="research-status">COMPLETED</span><span class="research-arrow">↗</span></div>
-      </article>
-      <article class="research-card reveal">
-        <div class="research-index">04</div>
-        <div class="research-main">
-          <div class="research-kicker">SEATTLE DATA AI &amp; SECURITY · BELLEVUE, WA · FEB — APR 2026</div>
-          <h3>AI &amp; Data Automation Intern</h3>
-          <p>Built automated Python ETL pipelines that scrape and structure social media and news data for marketing analytics, and summarised results in Power BI dashboards to support outreach planning.</p>
-          <ul class="metrics"><li><b>90%</b><span>less search time</span></li></ul>
-          <div class="tags"><span>Python</span><span>ETL</span><span>Power BI</span><span>Web Scraping</span></div>
-        </div>
-        <div class="research-side"><span class="research-status">COMPLETED</span><span class="research-arrow">↗</span></div>
-      </article>
-      <article class="research-card reveal">
-        <div class="research-index">05</div>
-        <div class="research-main">
-          <div class="research-kicker">JAYPEE INSTITUTE OF INFORMATION TECHNOLOGY · JUN — JUL 2023</div>
-          <h3>Research Assistant</h3>
-          <p>Built a scalable, rule-based NLP system to automate question generation, enabling a 10× increase in dataset size.</p>
-          <div class="tags"><span>NLP</span><span>Python</span><span>Data Generation</span></div>
-        </div>
-        <div class="research-side"><span class="research-status">COMPLETED</span><span class="research-arrow">↗</span></div>
-      </article>
-      </div></section>
+    </section>
 
     <!-- ===== Certifications ===== -->
     <section class="section container" id="certifications">
@@ -188,7 +124,8 @@
         <div class="cert-card reveal"><span class="cert-mark">◈</span><b>AWS AI Practitioner Challenge</b><small>Amazon Web Services</small></div>
         <div class="cert-card reveal"><span class="cert-mark">◈</span><b>AWS AI &amp; ML Scholars — 2026</b><small>Challenge Completion</small></div>
         <div class="cert-card reveal"><span class="cert-mark">◈</span><b>Foundations: Data, Data, Everywhere</b><small>Data fundamentals</small></div>
-        <div class="cert-card reveal cert-card-award"><span class="cert-mark">★</span><b>External Honors — Microsoft</b><small>Apr 2026 · Northeastern College of Engineering · awarded for MedQGraph</small></div><div class="cert-card reveal"><span class="cert-mark">◈</span><b>Azure AI App &amp; Agent Developer Associate</b><small>AI-103 · in progress</small></div>
+        <div class="cert-card reveal cert-card-award"><span class="cert-mark">★</span><b>External Honors — Microsoft</b><small>Apr 2026 · Northeastern College of Engineering · awarded for MedQGraph</small></div>
+        <div class="cert-card reveal"><span class="cert-mark">◈</span><b>Azure AI App &amp; Agent Developer Associate</b><small>AI-103 · in progress</small></div>
       </div>
 
       <div class="section-head reveal" style="margin-top:70px">
@@ -215,9 +152,11 @@
       <div class="eyebrow">WANT TO TALK ABOUT RESEARCH OR ROLES?</div>
       <h2>Let's build something<br><span class="gradient-text">meaningful.</span></h2>
       <p>I'm interested in AI/ML engineering and software engineering opportunities where I can bring research, systems thinking, and hands-on development together.</p>
+      <a class="contact-email" href="mailto:ishannortheastern@gmail.com">ishannortheastern@gmail.com</a>
       <div class="contact-actions">
         <a class="button button-primary" href="mailto:ishannortheastern@gmail.com">Email me <span>↗</span></a>
-        <a class="button button-ghost" href="https://www.linkedin.com/in/ishan-chaudhary01" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a>
+        <a class="button button-ghost" href="resume.html">Résumé <span>↗</span></a>
+        <a class="button button-ghost" href="https://www.linkedin.com/in/ishan-chaudhary01" target="_blank" rel="noopener noreferrer">LinkedIn <span>↗</span></a>
       </div>
     </div></section>
 
