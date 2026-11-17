@@ -10,3 +10,7 @@ source/
 # Original/source photos — only the exported profile.jpg + profile-sm.jpg ship.
 Ishan.jpeg
 *_pp.png
+
+# Source resumes stay local. They carry a phone number, and resume.html is the
+# public version of this content.
+*.pdf
