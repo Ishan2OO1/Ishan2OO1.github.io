@@ -22,7 +22,12 @@
 
     This page is the resume: plain HTML so recruiters, search engines and
     applicant-tracking systems can all read it, and it prints to one US Letter
-    page. "Save as PDF" in the print dialog produces the PDF.
+    page.
+
+    Ishan_Chaudhary_Resume.pdf beside it is generated FROM this page, so it is a
+    copy, not a second source. After editing this file, regenerate it or the
+    download goes stale: open the page, print to PDF at Letter with background
+    graphics off and margins set by the stylesheet, and save over that filename.
   -->
   <style>
     :root{--ink:#14171f;--soft:#444b5a;--rule:#c9ced8;--accent:#2f4bb3}
@@ -71,7 +76,7 @@
       html{background:#fff}
       .bar{display:none}
       .page{width:auto;min-height:0;margin:0;padding:0;box-shadow:none}
-      body{font-size:8.15pt;line-height:1.2}
+      body{font-size:8pt;line-height:1.19}
       h1{font-size:18pt}
       h2{margin:4px 0 3px;font-size:8.2pt}
       .item{margin-bottom:2px}
@@ -85,7 +90,10 @@
 <body>
   <div class="bar">
     <a href="index.html">← Portfolio</a>
-    <div><button class="primary" type="button" onclick="window.print()">Print / Save as PDF</button></div>
+    <div>
+      <a href="Ishan_Chaudhary_Resume.pdf" download>Download PDF</a>
+      <button class="primary" type="button" onclick="window.print()">Print</button>
+    </div>
   </div>
 
   <main class="page">
@@ -183,9 +191,9 @@
         </ul>
       </div>
       <div class="item">
-        <p><b>FaceDepth-Vision — High-Performance C++ Inference Pipeline</b> <span class="tech">| C++, ONNX Runtime</span></p>
+        <p><b>FaceDepth-Vision — C++ Computer Vision Pipeline</b> <span class="tech">| C++, ONNX Runtime, OpenCV</span></p>
         <ul>
-          <li>Achieved a 3x inference speedup to 30+ FPS by optimizing convolution kernels via separable decomposition; benchmarked accuracy/latency trade-offs across input resolutions.</li>
+          <li>Built custom image filters, Haar-cascade face detection with background blur, and Depth Anything v2 depth estimation through ONNX Runtime; separable decomposition of the blur kernel cut its cost ~3x, with face detection at 30+ FPS and depth estimation at 10–15 FPS on CPU.</li>
         </ul>
       </div>
     </section>
@@ -194,9 +202,9 @@
       <h2>Publication and Award</h2>
       <div class="item">
         <p><b>AAAI 2026 — Human-Centric Manufacturing (HCM) Workshop</b> | <a class="ext" href="https://sites.google.com/view/hcm-aaai26/accepted-papers" target="_blank" rel="noopener noreferrer">Paper</a></p>
-        <p class="sub">Human-Centric AI for Sustainable Manufacturing: Real-Time Emission-Aware Decision Support in PV Recycling (2025)</p>
+        <p class="sub">Human-Centric AI for Sustainable Manufacturing: Real-Time Emission-Aware Decision Support in PV Recycling · Vats, <b>Chaudhary</b>, Gulia, Beck, Chaudhary — co-first author</p>
         <ul>
-          <li>Built an XGBoost + Random Forest ensemble for real-time GHG emission prediction across 12 photovoltaic recycling processes (11.8% MAPE vs 62.3% for linear regression; R-squared 0.97), benchmarked against neural network and TabNet models.</li>
+          <li>Built a Random Forest + XGBoost ensemble for real-time GHG emission prediction across 12 end-of-life PV and e-waste recycling processes, reaching RMSE 23.38 against 108.18 for linear regression and 122.45 for a neural network; benchmarked against TabNet and single-model baselines.</li>
         </ul>
       </div>
       <div class="item">

@@ -14,3 +14,7 @@ Ishan.jpeg
 # Source resumes stay local. They carry a phone number, and resume.html is the
 # public version of this content.
 *.pdf
+
+# The one exception: the download generated from resume.html, which carries no
+# phone number. Regenerate it whenever resume.html changes.
+!Ishan_Chaudhary_Resume.pdf

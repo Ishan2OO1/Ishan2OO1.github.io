@@ -102,7 +102,7 @@
       <div><b>AAAI 2026</b><span>Workshop paper, published</span></div>
       <div><b>Microsoft</b><span>External Honors for MedQGraph</span></div>
       <div><b>10.5K req/s</b><span>At 50 ms p99, zero failures</span></div>
-      <div><b>91%</b><span>NL-to-SQL accuracy, Port of Seattle</span></div>
+      <div><b>91%</b><span>NL-to-SQL accuracy vs 80% target</span></div>
     </section>
 
     <!-- ===== Experience ===== -->
@@ -149,7 +149,7 @@
         <div class="research-main">
           <h3>AI &amp; Data Automation Intern</h3>
           <div class="research-kicker">SEATTLE DATA AI &amp; SECURITY · BELLEVUE, WA</div>
-          <p>Built automated Python ETL pipelines that scrape and structure social media and news data for marketing analytics, cutting search time by 90%, and summarised results in Power BI dashboards to support outreach planning.</p>
+          <p>Built automated Python ETL pipelines that scrape and structure unstructured web data for marketing analytics and ML-driven client solutions, cutting client information-retrieval time by 90%, and reported the results in Power BI.</p>
           <div class="tags"><span>Python</span><span>ETL</span><span>Power BI</span><span>Web Scraping</span></div>
         </div>
         <div class="research-side"></div>
@@ -177,7 +177,7 @@
             <div class="project-top"><span class="project-type">AI RESEARCH · HEALTHCARE</span><span class="award-pill">★ MICROSOFT EXTERNAL HONORS</span></div>
             <h3>MedQGraph</h3>
             <p>A clinical decision-support system that models FHIR-compliant MIMIC-IV patient records as a Neo4j temporal knowledge graph, paired with a LangChain RAG pipeline on GPT-4o that answers clinical questions in plain English.</p>
-            <ul class="metrics"><li><b>65%</b><span>faster than SQL</span></li><li><b>40%</b><span>retrieval relevance</span></li><li><b>94.3%</b><span>query success</span></li><li><b>8.5 min → 15 s</b><span>across 50K+ records</span></li></ul>
+            <ul class="metrics"><li><b>65%</b><span>faster than SQL</span></li><li><b>+40%</b><span>retrieval relevance vs SQL baseline</span></li><li><b>94.3%</b><span>query success</span></li><li><b>8.5 min → 15 s</b><span>across 50K+ records</span></li></ul>
             <div class="tags"><span>Neo4j</span><span>LangChain</span><span>FHIR</span><span>GPT-4o</span><span>RAG</span><span>Azure OpenAI</span></div>
             <details class="how"><summary>How it works</summary><p>A clinical question is parsed, the relevant clinical entities are retrieved, the temporal graph is traversed, and a grounded answer is assembled from what the graph returns.</p></details>
             <div class="project-actions"><a class="text-link" href="https://github.com/Ishan2OO1/MedQGraph-" target="_blank" rel="noopener noreferrer">View code on GitHub <span>↗</span></a></div>
@@ -189,10 +189,10 @@
           <div class="project-info">
             <div class="project-top"><span class="project-type">DISTRIBUTED SYSTEMS</span></div>
             <h3>SkiTrak</h3>
-            <p>A multithreaded Java event-ingestion platform that streamed 500K requests to a Tomcat service on AWS EC2 with zero failures. Thread counts were tuned using Little's Law, and RabbitMQ consumers feed live leaderboards over WebSockets.</p>
-            <ul class="metrics"><li><b>10.5K</b><span>requests/sec</span></li><li><b>50 ms</b><span>p99 latency</span></li><li><b>2.7×</b><span>throughput gain</span></li><li><b>0</b><span>failed requests</span></li></ul>
+            <p>A multithreaded Java event-ingestion platform that streamed 500K requests to a Tomcat service on AWS EC2 with zero failures, using a 256-thread pool and reusable HTTP connections. A 32–512 thread sweep and Little's Law located the saturation point, raising throughput 2.7×. Behind an AWS load balancer, RabbitMQ consumers with deduplication and queue-depth monitoring feed live leaderboards to auto-reconnecting WebSocket subscribers.</p>
+            <ul class="metrics"><li><b>10.5K/s</b><span>sustained over 500K requests</span></li><li><b>10.7K/s</b><span>peak, tuned up from 3.9K</span></li><li><b>50 ms</b><span>p99 latency</span></li><li><b>0</b><span>failed requests</span></li></ul>
             <div class="tags"><span>Java</span><span>RabbitMQ</span><span>WebSockets</span><span>AWS EC2</span><span>Concurrency</span></div>
-            <details class="how"><summary>How it works</summary><p>Each request is accepted, dispatched through a tuned thread pool, queued in RabbitMQ, and consumed by the leaderboard service that pushes updates over WebSockets.</p></details>
+            <details class="how"><summary>How it works</summary><p>Each request is accepted, dispatched through the 256-thread pool over reusable HTTP connections, queued in RabbitMQ behind a load balancer, deduplicated, and consumed by the leaderboard service that pushes updates over WebSockets to subscribers that reconnect on drop.</p></details>
             <div class="project-actions"><span class="text-link text-link-muted">Private repository — walkthrough on request</span></div>
           </div>
         </article>
@@ -203,7 +203,7 @@
             <div class="project-top"><span class="project-type">APPLIED AI · CAPSTONE</span></div>
             <h3>AIport <span class="h3-sub">· Port of Seattle</span></h3>
             <p>A natural-language-to-SQL reporting tool over a 600+ column data warehouse for Seattle-Tacoma International Airport. CodeLlama-7B was fine-tuned for SQL generation, with a Claude Haiku 4.5 validation layer and template fallbacks catching bad queries.</p>
-            <ul class="metrics"><li><b>2 wks → 2 min</b><span>reporting time</span></li><li><b>91%</b><span>SQL accuracy</span></li><li><b>600+</b><span>warehouse columns</span></li><li><b>11</b><span>query types evaluated</span></li></ul>
+            <ul class="metrics"><li><b>2 wks → 2 min</b><span>reporting time</span></li><li><b>91%</b><span>SQL accuracy vs 80% target</span></li><li><b>600+</b><span>warehouse columns</span></li><li><b>11</b><span>query types evaluated</span></li></ul>
             <div class="tags"><span>CodeLlama-7B</span><span>FastAPI</span><span>React</span><span>Chart.js</span><span>LLM Evaluation</span></div>
             <details class="how"><summary>How it works</summary><p>A staff question is parsed, SQL is generated by the fine-tuned model, a validation layer checks the query before it runs, and the result comes back as a chart.</p></details>
             <div class="project-actions"><span class="text-link text-link-muted">Private repository — walkthrough on request</span></div>
@@ -214,9 +214,9 @@
           <div class="project-info">
             <div class="project-top"><span class="project-type">COMPUTER VISION</span></div>
             <h3>FaceDepth-Vision</h3>
-            <p>A high-performance C++ inference pipeline on ONNX Runtime. Convolution kernels were optimised through separable decomposition, with accuracy and latency benchmarked across input resolutions.</p>
-            <ul class="metrics"><li><b>3×</b><span>inference speedup</span></li><li><b>30+</b><span>frames per second</span></li></ul>
-            <div class="tags"><span>C++</span><span>ONNX Runtime</span><span>OpenCV</span></div>
+            <p>A C++ computer-vision pipeline that runs custom image filters, Haar-cascade face detection with background blur, and Depth Anything v2 depth estimation through ONNX Runtime. Decomposing the blur kernel into separable passes cut its cost by about 3×. Built for CS 5330 Computer Vision.</p>
+            <ul class="metrics"><li><b>~3×</b><span>faster separable blur</span></li><li><b>30+ FPS</b><span>face detection</span></li><li><b>10–15 FPS</b><span>depth estimation on CPU</span></li></ul>
+            <div class="tags"><span>C++</span><span>ONNX Runtime</span><span>OpenCV</span><span>Depth Anything v2</span></div>
             <div class="project-actions"><a class="text-link" href="https://github.com/Ishan2OO1/FaceDepth-Vision" target="_blank" rel="noopener noreferrer">View code on GitHub <span>↗</span></a></div>
           </div>
         </article>
@@ -253,9 +253,11 @@
         <div class="research-index">01</div>
         <div class="research-main">
           <div class="research-kicker">AAAI 2026 · HUMAN-CENTRIC MANUFACTURING WORKSHOP</div>
-          <h3>Human-Centric AI for Sustainable Manufacturing</h3>
-          <p>Real-time emission-aware decision support in photovoltaic recycling. Five models — linear regression, a neural network, TabNet, Random Forest and XGBoost — were compared and combined into a weighted ensemble, on a dataset built from IEA-PVPS, openLCA and EPA sources. Scenario analysis showed operators the trade-offs between recovery, cost and emissions.</p>
-          <ul class="metrics"><li><b>11.8%</b><span>ensemble error</span></li><li><b>62.3%</b><span>linear baseline error</span></li><li><b>0.97</b><span>R-squared</span></li><li><b>12</b><span>recycling processes</span></li></ul>
+          <h3>Human-Centric AI for Sustainable Manufacturing: Real-Time Emission-Aware Decision Support in PV Recycling</h3>
+          <p class="research-authors">Saanidhya Vats*, <b>Ishan Chaudhary*</b>, Kiran Gulia, Gesa Beck, Divya Chaudhary · *co-first authors</p>
+          <p>Recycling operators get no feedback on the greenhouse-gas cost of a process choice until long after the fact, because life-cycle assessment is retrospective. We trained a Random Forest + XGBoost ensemble to predict emissions in real time from energy use, ambient temperature, humidity and process type, so an operator can forecast the impact of an action before running it.</p>
+          <p>The prototype dataset covers 12 end-of-life PV and e-waste recycling processes, synthesised from IEA-PVPS life-cycle inventories, openLCA impact databases and EPA WARM v15 emission factors — a proof of concept, not a representative sample.</p>
+          <ul class="metrics"><li><b>23.38</b><span>ensemble RMSE</span></li><li><b>21.55</b><span>best single model (XGBoost)</span></li><li><b>108.18</b><span>linear regression RMSE</span></li><li><b>12</b><span>recycling processes</span></li></ul>
           <div class="project-actions"><a class="text-link" href="https://sites.google.com/view/hcm-aaai26/accepted-papers" target="_blank" rel="noopener noreferrer">Workshop accepted papers <span>↗</span></a></div>
         </div>
         <div class="research-side"><span class="research-status">PUBLISHED</span></div>
@@ -292,13 +294,13 @@
 
     <!-- ===== Skills ===== -->
     <section class="section container" id="skills">
-      <div class="section-head reveal"><div><div class="eyebrow">SKILLS</div><h2>What I <span class="gradient-text">work with.</span></h2></div><p>Grouped by where they've been used in the work above.</p></div>
+      <div class="section-head reveal"><div><div class="eyebrow">SKILLS</div><h2>What I <span class="gradient-text">work with.</span></h2></div><p>The same list as my résumé, grouped by area.</p></div>
       <div class="skills-grid reveal">
-        <div class="skill-group"><h3>Languages</h3><div class="tags"><span>Python</span><span>Java</span><span>C++</span><span>SQL</span></div></div>
+        <div class="skill-group"><h3>Languages</h3><div class="tags"><span>Python</span><span>Java</span><span>C++</span><span>JavaScript</span><span>SQL</span><span>Bash</span></div></div>
         <div class="skill-group"><h3>ML &amp; LLMs</h3><div class="tags"><span>PyTorch</span><span>TensorFlow</span><span>Hugging Face</span><span>LLM Fine-tuning</span><span>RAG / GraphRAG</span><span>LangChain</span><span>LLM Evaluation</span></div></div>
-        <div class="skill-group"><h3>Data &amp; Graphs</h3><div class="tags"><span>Neo4j</span><span>Knowledge Graphs</span><span>PostgreSQL</span><span>Spark</span><span>Power BI</span></div></div>
-        <div class="skill-group"><h3>Systems &amp; Cloud</h3><div class="tags"><span>Distributed Systems</span><span>Multithreading</span><span>System Design</span><span>RabbitMQ</span><span>Docker</span><span>Kubernetes</span><span>AWS</span><span>Azure</span></div></div>
-        <div class="skill-group"><h3>Web &amp; APIs</h3><div class="tags"><span>FastAPI</span><span>React</span><span>WebSockets</span></div></div>
+        <div class="skill-group"><h3>Data &amp; Graphs</h3><div class="tags"><span>Neo4j</span><span>Knowledge Graphs</span><span>PostgreSQL</span><span>MySQL</span><span>Redis</span><span>Redshift</span><span>Spark</span><span>ETL</span><span>Power BI</span></div></div>
+        <div class="skill-group"><h3>Systems &amp; Cloud</h3><div class="tags"><span>Distributed Systems</span><span>Multithreading &amp; Concurrency</span><span>System Design</span><span>OOD</span><span>Design Patterns</span><span>Microservices</span><span>RabbitMQ</span><span>Docker</span><span>Kubernetes</span><span>CI/CD</span><span>Unix/Linux</span><span>AWS</span><span>Azure</span></div></div>
+        <div class="skill-group"><h3>Web &amp; APIs</h3><div class="tags"><span>REST APIs</span><span>FastAPI</span><span>React</span><span>WebSockets</span><span>Testing</span><span>Git</span><span>Agile</span></div></div>
         <div class="skill-group"><h3>Certifications</h3><div class="tags"><span>AWS AI Practitioner Challenge</span><span>AWS AI &amp; ML Scholars 2026</span><span>Azure AI-103 (in progress)</span></div></div>
       </div>
     </section>

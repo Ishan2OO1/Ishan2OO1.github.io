@@ -336,3 +336,8 @@ body{position:relative}
    text at every width; the 3px offset is what centres a 7px dot on a 10px/1.4 line. */
 .eyebrow{align-items:flex-start}
 .status-dot{flex:0 0 auto;margin-top:3px}
+
+/* Author credit under a research card's title. Sits between the heading and the
+   abstract, so it reads as a byline rather than as part of the summary. */
+.research-authors{font:11px var(--mono);color:#8b96ab;letter-spacing:.02em;margin:0 0 12px;line-height:1.7}
+.research-authors b{color:#cdd5e4;font-weight:500}
