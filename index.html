@@ -125,7 +125,7 @@
         <div class="research-main">
           <h3>Graduate Research Assistant</h3>
           <div class="research-kicker">INSIGHTX LAB · NORTHEASTERN UNIVERSITY</div>
-          <p>Architected MedQGraph, modelling FHIR-compliant MIMIC-IV records as a Neo4j temporal knowledge graph with a LangChain + GPT-4o RAG pipeline. Built GraphJailbreak, an annotated benchmark for adversarial attacks that evade text-only safety classifiers.</p>
+          <p>Architected MedQGraph, modelling 230,000 FHIR-normalised MIMIC-IV records as a Neo4j temporal knowledge graph queried by a four-agent GPT-4o pipeline. Built GraphJailbreak, an annotated benchmark for adversarial attacks that evade text-only safety classifiers.</p>
           <ul class="metrics"><li><b>65%</b><span>faster than SQL</span></li><li><b>94.3%</b><span>query success</span></li><li><b>50K+</b><span>records remodelled</span></li></ul>
           <div class="tags"><span>Neo4j</span><span>LangChain</span><span>GPT-4o</span><span>Healthcare AI</span><span>AI Safety</span></div>
         </div>
@@ -176,10 +176,11 @@
           <div class="project-info">
             <div class="project-top"><span class="project-type">AI RESEARCH · HEALTHCARE</span><span class="award-pill">★ MICROSOFT EXTERNAL HONORS</span></div>
             <h3>MedQGraph</h3>
-            <p>A clinical decision-support system that models FHIR-compliant MIMIC-IV patient records as a Neo4j temporal knowledge graph, paired with a LangChain RAG pipeline on GPT-4o that answers clinical questions in plain English.</p>
-            <ul class="metrics"><li><b>65%</b><span>faster than SQL</span></li><li><b>+40%</b><span>retrieval relevance vs SQL baseline</span></li><li><b>94.3%</b><span>query success</span></li><li><b>8.5 min → 15 s</b><span>across 50K+ records</span></li></ul>
+            <p>A clinical decision-support system that turns six MIMIC-IV v3.0 modules into a Neo4j temporal knowledge graph — <b>230,000 clinical event records across 45,127 patients and 78,043 admissions</b>, normalised to FHIR profiles before ingestion. Four GPT-4o agents answer a question asked in plain English: one reads the intent, one writes schema-validated Cypher, one summarises the rows for a clinician, and one proposes follow-ups from the relationships the answer touched.</p>
+            <p>On a 50-query Medication / Diagnosis / Risk Assessment benchmark it runs 2.85× faster than the equivalent SQL over the raw tables, with 40% better retrieval relevance.</p>
+            <ul class="metrics"><li><b>65%</b><span>faster than SQL · 490→172 ms</span></li><li><b>94.3%</b><span>natural language → Cypher</span></li><li><b>89.7%</b><span>summaries rated accurate</span></li><li><b>8.5 min → 15 s</b><span>vs manual EHR navigation</span></li></ul>
             <div class="tags"><span>Neo4j</span><span>LangChain</span><span>FHIR</span><span>GPT-4o</span><span>RAG</span><span>Azure OpenAI</span></div>
-            <details class="how"><summary>How it works</summary><p>A clinical question is parsed, the relevant clinical entities are retrieved, the temporal graph is traversed, and a grounded answer is assembled from what the graph returns.</p></details>
+            <details class="how"><summary>How it works</summary><p>Six MIMIC-IV modules are joined on <code>subject_id</code> and <code>hadm_id</code>, denormalised so graph queries need no runtime joins, then loaded as <code>Patient</code>, <code>Admission</code>, <code>Diagnosis</code>, <code>Medication</code>, <code>Procedure</code> and <code>Test</code> nodes joined by time-stamped edges. NULLs are preserved rather than imputed, so a missing value becomes an absent edge instead of a fabricated relationship.</p><p>A question is turned into Cypher by GPT-4o against a schema description, validated for syntax, schema compliance, property existence and query cost before it runs — a failure regenerates with structured feedback. “Medications for patient 10000032” becomes a <code>Patient→Admission→Medication</code> traversal. LangChain embeddings put queries and graph entities in one vector space for similarity search alongside the generated Cypher.</p><p>MIMIC-IV is a single hospital’s critical-care data and the benchmark is the project’s own, so the figures above measure this system on this dataset, not clinical readiness.</p></details>
             <div class="project-actions"><a class="text-link" href="https://github.com/Ishan2OO1/MedQGraph-" target="_blank" rel="noopener noreferrer">View code on GitHub <span>↗</span></a></div>
           </div>
         </article>

@@ -341,3 +341,8 @@ body{position:relative}
    abstract, so it reads as a byline rather than as part of the summary. */
 .research-authors{font:11px var(--mono);color:#8b96ab;letter-spacing:.02em;margin:0 0 12px;line-height:1.7}
 .research-authors b{color:#cdd5e4;font-weight:500}
+
+/* A card's body is usually one paragraph, so .project-info p zeroes the margin.
+   Cards that carry a second paragraph need the gap back, or the two run together
+   as one block of text. */
+.project-info p + p,.research-main p + p{margin-top:13px}
