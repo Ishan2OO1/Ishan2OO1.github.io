@@ -176,12 +176,12 @@
     <section>
       <h2>Projects</h2>
       <div class="item">
-        <p><b>SkiTrak — Distributed Real-Time Event Ingestion Platform</b> <span class="tech">| Java, Tomcat, WebSockets, AWS EC2</span></p>
+        <p><b>SkiTrak — Distributed Real-Time Event Ingestion Platform</b> <span class="tech">| Java, Tomcat, RabbitMQ, WebSockets, AWS EC2 + ALB</span> <a class="ext" href="https://github.com/Ishan2OO1/skitrak-realtime" target="_blank" rel="noopener noreferrer">Code</a></p>
         <ul>
-          <li>Built a multithreaded Java system with a 256-thread pool and reusable HTTP connections that sent 500K requests to a Tomcat service on AWS EC2, sustaining 10.5K requests/sec at 50 ms p99 latency with zero failures.</li>
-          <li>Used Little's Law and a 32–512 thread sweep to find the server's saturation point, raising throughput 2.7x (3.9K → 10.7K requests/sec).</li>
-          <li>Scaled ingest behind an AWS load balancer with a RabbitMQ queue feeding consumers that build live leaderboards, with deduplication and queue-depth monitoring.</li>
-          <li>Pushed real-time leaderboard updates over WebSockets with auto-reconnecting subscribers.</li>
+          <li>Built a distributed ingest pipeline that carried 1,000,000 swipe events with zero loss at 7,415 events/sec and 140 ms p99 across 4 load-balanced Tomcat servers, publishing to RabbitMQ with publisher confirms so an event is acknowledged only once durable.</li>
+          <li>Found the ceilings with Little's Law and CloudWatch: a 64-channel publish pool capped one server near 4,800/s, and doubling it gave +23% throughput with 42% lower p99; the broker saturated next while per-server CPU sat at 20%.</li>
+          <li>Kept per-resort ordering through a topic exchange and one durable queue per resort, with bounded event-id deduplication and acks applied only after each top-20 update landed.</li>
+          <li>Fanned changed leaderboards to every server over a pub/sub backplane for WebSocket delivery; verified recovery under server loss (99.95% success, 0 lost), broker restart, consumer kill and poison messages.</li>
         </ul>
       </div>
       <div class="item">

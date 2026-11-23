@@ -74,7 +74,7 @@
         <div class="eyebrow"><span class="status-dot"></span> OPEN TO FULL-TIME ROLES · GRADUATING DEC 2026</div>
         <h1>Ishan Chaudhary</h1>
         <p class="hero-role">AI/ML Engineer &amp; Software Engineer <span class="gradient-text">LLM applications, knowledge graphs and distributed systems.</span></p>
-        <p class="hero-sub">I take AI from research to working software: a clinical knowledge-graph system that answers questions 65% faster than SQL, a natural-language reporting tool that cut airport reporting from two weeks to two minutes, and a Java ingestion service handling 10.5K requests per second.</p>
+        <p class="hero-sub">I take AI from research to working software: a clinical knowledge-graph system that answers questions 65% faster than SQL, a natural-language reporting tool that cut airport reporting from two weeks to two minutes, and a Java event pipeline that carried a million events with none lost.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="resume.html">View résumé <span>↗</span></a>
           <a class="button button-ghost" href="mailto:ishannortheastern@gmail.com">Email <span>↗</span></a>
@@ -101,7 +101,7 @@
       <div><b>4.0 / 4.0</b><span>Graduate GPA, Northeastern</span></div>
       <div><b>AAAI 2026</b><span>Workshop paper, published</span></div>
       <div><b>Microsoft</b><span>External Honors for MedQGraph</span></div>
-      <div><b>10.5K req/s</b><span>At 50 ms p99, zero failures</span></div>
+      <div><b>1M events</b><span>Zero lost, 7.4K/s across 4 servers</span></div>
       <div><b>91%</b><span>NL-to-SQL accuracy vs 80% target</span></div>
     </section>
 
@@ -185,15 +185,16 @@
         </article>
 
         <article class="project-card project-half reveal">
-          <div class="project-visual system-visual" aria-hidden="true"><div class="visual-label">DISTRIBUTED SYSTEMS / JAVA</div><div class="system-stack"><div class="stack-box">500K EVENTS</div><span>↓</span><div class="stack-row"><div class="stack-box">LOAD BALANCER</div><div class="stack-box">RABBITMQ</div></div><span>↓</span><div class="stack-box stack-accent">LIVE LEADERBOARDS</div></div></div>
+          <div class="project-visual system-visual" aria-hidden="true"><div class="visual-label">DISTRIBUTED SYSTEMS / JAVA</div><div class="system-stack"><div class="stack-box">1M EVENTS</div><span>↓</span><div class="stack-row"><div class="stack-box">LOAD BALANCER</div><div class="stack-box">RABBITMQ</div></div><span>↓</span><div class="stack-box stack-accent">LIVE LEADERBOARDS</div></div></div>
           <div class="project-info">
             <div class="project-top"><span class="project-type">DISTRIBUTED SYSTEMS</span></div>
             <h3>SkiTrak</h3>
-            <p>A multithreaded Java event-ingestion platform that streamed 500K requests to a Tomcat service on AWS EC2 with zero failures, using a 256-thread pool and reusable HTTP connections. A 32–512 thread sweep and Little's Law located the saturation point, raising throughput 2.7×. Behind an AWS load balancer, RabbitMQ consumers with deduplication and queue-depth monitoring feed live leaderboards to auto-reconnecting WebSocket subscribers.</p>
-            <ul class="metrics"><li><b>10.5K/s</b><span>sustained over 500K requests</span></li><li><b>10.7K/s</b><span>peak, tuned up from 3.9K</span></li><li><b>50 ms</b><span>p99 latency</span></li><li><b>0</b><span>failed requests</span></li></ul>
-            <div class="tags"><span>Java</span><span>RabbitMQ</span><span>WebSockets</span><span>AWS EC2</span><span>Concurrency</span></div>
-            <details class="how"><summary>How it works</summary><p>Each request is accepted, dispatched through the 256-thread pool over reusable HTTP connections, queued in RabbitMQ behind a load balancer, deduplicated, and consumed by the leaderboard service that pushes updates over WebSockets to subscribers that reconnect on drop.</p></details>
-            <div class="project-actions"><span class="text-link text-link-muted">Private repository — walkthrough on request</span></div>
+            <p>A distributed pipeline that ingests ski-lift swipe events, aggregates them per skier, and pushes live leaderboards to WebSocket clients. Stateless Tomcat ingest servers behind an AWS load balancer publish to RabbitMQ with publisher confirms, so a swipe is only acknowledged once the broker has it. A consumer keeps per-resort running totals and a top-20, then fans each changed board out to every server through a pub/sub backplane.</p>
+            <p>Little's Law and CloudWatch located two ceilings in turn: a publish-channel pool (64 channels at ~13 ms per confirm capped one server near 4,800/s — doubling the pool bought +23% throughput and cut p99 42%), then the broker itself, which saturated while per-server CPU sat at 20%. Failure was tested too: a server killed behind the load balancer, a broker restart, a consumer <code>kill -9</code> and poison messages.</p>
+            <ul class="metrics"><li><b>1M</b><span>events, none lost</span></li><li><b>7,415/s</b><span>across 4 ingest servers</span></li><li><b>140 ms</b><span>p99 latency</span></li><li><b>99.95%</b><span>with a server killed mid-run</span></li></ul>
+            <div class="tags"><span>Java</span><span>RabbitMQ</span><span>WebSockets</span><span>AWS EC2 + ALB</span><span>Concurrency</span><span>CloudWatch</span></div>
+            <details class="how"><summary>How it works</summary><p>A swipe hits an ingest server behind the load balancer, which validates it, looks up the lift’s vertical and publishes to that resort’s queue, returning 201 only after RabbitMQ confirms. A topic exchange keeps one durable queue per resort, so each resort stays in order and the consumer can hold per-resort state without locks. The consumer deduplicates by event id, updates the top-20, and acks only after the update lands. When a board changes it goes to a fanout exchange, and every ingest server pushes it to its own WebSocket subscribers.</p><p>Run as a graduate distributed-systems project at Northeastern: 512 client threads, 4 ingest servers.</p></details>
+            <div class="project-actions"><a class="text-link" href="https://github.com/Ishan2OO1/skitrak-realtime" target="_blank" rel="noopener noreferrer">View code on GitHub <span>↗</span></a></div>
           </div>
         </article>
 
