@@ -10,15 +10,17 @@ permissions:
   pages: write
   id-token: write
 
+# One deployment at a time. Queued runs are skipped in favour of the newest,
+# but a deployment already under way is allowed to finish: cancelling one
+# mid-flight is what GitHub's own Pages workflow warns against.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  # Build and deploy are separate jobs, as in GitHub's reference workflow, so
+  # the artifact is finished and registered before anything looks for it.
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -26,5 +28,13 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
+
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
       - id: deployment
         uses: actions/deploy-pages@v4
